@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Footprint Calculator</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        #myModal {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #myModal div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../../index.html">
+            <img src="../../assets/images/logo.png" alt="Water Conservation Logo" class="logo">
+        </a>
+            <nav>
+                <ul class="menu-bar">
+                    <li><a href="../../index.html"><i class="fas fa-home"></i></a></li>
+                    <li><a href="../supportpage/help.html"><i class="fas fa-question-circle"></i></a></li>
+                    <li><a href="../contactpage/contact.html"><i class="fas fa-envelope"></i></a></li>
+                    <li><a href="../aboutpage/about.html"><i class="fas fa-info-circle"></i></a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Modal -->
+    <div id="myModal" style="display:none;">
+        <div style="background:white; padding:20px; border:1px solid #ccc; border-radius: 20px;">
+            <h1>This is your Water Footprint</h1>
+            <h2 id="totalFP"></h2>
+            <button onclick="closeModal()" class="submit-button">Close</button>
+        </div>
+    </div>
+
+    <main>
+        <div class="calculator-container">
+            <h1>QUESTIONS:</h1>
+            <p>Calculate your water footprint by answering the questions below:</p><br><br>
+            
+            <div class="form-group">
+                <h2 class="water-question">How often do you leave the tap running while washing your hands?</h2>
+                <label class="choices" id="num1">
+                    <label><input type="radio" name="q1-1" value="1"> Never </label>
+                    <label><input type="radio" name="q1-1" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-1" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-1" value="4">  Often </label>
+                    <label><input type="radio" name="q1-1" value="5">  Always </label>
+                </label>
+            </div>
+            <div class="form-group">
+                <h2 class="water-question">Do you turn off the shower while soaping or shampooing?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-2" value="1"> Never </label>
+                    <label><input type="radio" name="q1-2" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-2" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-2" value="4">  Often </label>
+                    <label><input type="radio" name="q1-2" value="5">  Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">How often do you check for and fix leaks in your home?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-3" value="1"> Never </label>
+                    <label><input type="radio" name="q1-3" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-3" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-3" value="4">  Often </label>
+                    <label><input type="radio" name="q1-3" value="5">  Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">Do you wash dishes by hand with the tap running or fill a basin with water?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-4" value="1"> Always running </label>
+                    <label><input type="radio" name="q1-4" value="2"> Often running </label>
+                    <label><input type="radio" name="q1-4" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-4" value="4"> Often basin </label>
+                    <label><input type="radio" name="q1-4" value="5"> Always basin </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">How frequently do you reuse water (e.g., for plants or cleaning)?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-5" value="1"> Never </label>
+                    <label><input type="radio" name="q1-5" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-5" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-5" value="4">  Often </label>
+                    <label><input type="radio" name="q1-5" value="5">  Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">Do you use water-efficient appliances like a washing machine or dishwasher?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-6" value="1"> Never </label>
+                    <label><input type="radio" name="q1-6" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-6" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-6" value="4">  Often </label>
+                    <label><input type="radio" name="q1-6" value="5">  Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">How often do you use hot water for laundry or cleaning?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-7" value="1"> Never </label>
+                    <label><input type="radio" name="q1-7" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-7" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-7" value="4"> Often </label>
+                    <label><input type="radio" name="q1-7" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">Do you minimize water use when preparing meals (e.g., boiling, rinsing)?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-8" value="1"> Never </label>
+                    <label><input type="radio" name="q1-8" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-8" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-8" value="4"> Often </label>
+                    <label><input type="radio" name="q1-8" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">How often do you run the washing machine or dishwasher with less than a full load?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-9" value="1"> Never </label>
+                    <label><input type="radio" name="q1-9" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-9" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-9" value="4"> Often </label>
+                    <label><input type="radio" name="q1-9" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">Do you prefer watering plants with a hose, sprinkler, or bucket?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-10" value="1"> Always hose </label>
+                    <label><input type="radio" name="q1-10" value="2"> Often hose </label>
+                    <label><input type="radio" name="q1-10" value="3"> Sometimes bucket </label>
+                    <label><input type="radio" name="q1-10" value="4"> Often bucket </label>
+                    <label><input type="radio" name="q1-10" value="5"> Always bucket </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">How often do you wash your car or motorcycle?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-11" value="1"> Never </label>
+                    <label><input type="radio" name="q1-11" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-11" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-11" value="4"> Often </label>
+                    <label><input type="radio" name="q1-11" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">Do you collect and use rainwater for household tasks (e.g., gardening, washing)?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-12" value="1"> Never </label>
+                    <label><input type="radio" name="q1-12" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-12" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-12" value="4"> Often </label>
+                    <label><input type="radio" name="q1-12" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">How frequently do you turn off the tap while brushing your teeth?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-13" value="1"> Never </label>
+                    <label><input type="radio" name="q1-13" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-13" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-13" value="4"> Often </label>
+                    <label><input type="radio" name="q1-13" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">Do you use a bucket to wash your car or motorcycle instead of a hose?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-14" value="1"> Never </label>
+                    <label><input type="radio" name="q1-14" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-14" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-14" value="4"> Often </label>
+                    <label><input type="radio" name="q1-14" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">How often do you monitor your household water bill to track water use?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-15" value="1"> Never </label>
+                    <label><input type="radio" name="q1-15" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-15" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-15" value="4"> Often </label>
+                    <label><input type="radio" name="q1-15" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">Do you take showers that are shorter than 8 minutes?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-16" value="1"> Never </label>
+                    <label><input type="radio" name="q1-16" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-16" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-16" value="4"> Often </label>
+                    <label><input type="radio" name="q1-16" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">How frequently do you use a low-flow showerhead or faucet aerator to save water?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-17" value="1"> Never </label>
+                    <label><input type="radio" name="q1-17" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-17" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-17" value="4"> Often </label>
+                    <label><input type="radio" name="q1-17" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">Do you wait until the dishwasher or washing machine is fully loaded before running it?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-18" value="1"> Never </label>
+                    <label><input type="radio" name="q1-18" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-18" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-18" value="4"> Often </label>
+                    <label><input type="radio" name="q1-18" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">How often do you flush the toilet after every use?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-19" value="1"> Never </label>
+                    <label><input type="radio" name="q1-19" value="2"> Rarely </label>
+                    <label><input type="radio" name="q1-19" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-19" value="4"> Often </label>
+                    <label><input type="radio" name="q1-19" value="5"> Always </label>
+                </label>
+            </div><br>
+            <div class="form-group">
+                <h2 class="water-question">Do you typically wash fruits and vegetables under a running tap or in a bowl of water?</h2>
+                <label class="choices">
+                    <label><input type="radio" name="q1-20" value="1"> Always running tap </label>
+                    <label><input type="radio" name="q1-20" value="2"> Often running tap </label>
+                    <label><input type="radio" name="q1-20" value="3"> Sometimes </label>
+                    <label><input type="radio" name="q1-20" value="4"> Often in bowl </label>
+                    <label><input type="radio" name="q1-20" value="5"> Always in bowl </label>
+                </label>
+            </div><br><br>
+            <button type="submit" class="submit-button" onclick="calculateWaterFP()">Calculate Water Footprint</button>
+            
+        </div>
+    </main>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Water Conservation. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="../generalcomponents/terms_of_service.html" style="color: blue;">Terms of Service</a></li>
+                <li><a href="../generalcomponents/references.html" style="color: blue;">References</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+    function calculateWaterFP(){
+        // const showers = parseInt(document.getElementById('showers').value);
+        // const toiletFlushes = parseInt(document.getElementById('toilet_flushes').value);
+        // const laundry = parseInt(document.getElementById('laundry').value);
+        // const dishes = parseInt(document.getElementById('dishes').value);
+
+        const selectedOption1 = document.querySelector('input[name="q1-1"]:checked').value;
+        const selectedOption2 = document.querySelector('input[name="q1-2"]:checked');
+        const selectedOption3 = document.querySelector('input[name="q1-3"]:checked');
+        const selectedOption4 = document.querySelector('input[name="q1-4"]:checked');
+        const selectedOption5 = document.querySelector('input[name="q1-5"]:checked');
+        const selectedOption6 = document.querySelector('input[name="q1-6"]:checked');
+        const selectedOption7 = document.querySelector('input[name="q1-7"]:checked');
+        const selectedOption8 = document.querySelector('input[name="q1-8"]:checked');
+        const selectedOption9 = document.querySelector('input[name="q1-9"]:checked');
+        const selectedOption10 = document.querySelector('input[name="q1-10"]:checked');
+        const selectedOption11 = document.querySelector('input[name="q1-11"]:checked');
+        const selectedOption12 = document.querySelector('input[name="q1-12"]:checked');
+        const selectedOption13 = document.querySelector('input[name="q1-13"]:checked');
+        const selectedOption14 = document.querySelector('input[name="q1-14"]:checked');
+        const selectedOption15 = document.querySelector('input[name="q1-15"]:checked');
+        const selectedOption16 = document.querySelector('input[name="q1-16"]:checked');
+        const selectedOption17 = document.querySelector('input[name="q1-17"]:checked');
+        const selectedOption18 = document.querySelector('input[name="q1-18"]:checked');
+        const selectedOption19 = document.querySelector('input[name="q1-19"]:checked');
+        const selectedOption20 = document.querySelector('input[name="q1-20"]:checked');
+
+        // Example calculations (you can adjust these values based on your needs)
+        // const water_per_shower = 50; // Liters per shower
+        // const water_per_flush = 10; // Liters per flush
+        // const water_per_load = 80; // Liters per laundry load
+        // const water_per_dish = 2; // Liters per dish
+
+        // let totalWaterFootprint = (showers * water_per_shower) + (toiletFlushes * water_per_flush) + (laundry * water_per_load) + (dishes * water_per_dish);
+
+        if(selectedOption1){
+            document.getElementById('totalFP').innerHTML = selectedOption1;
+
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
+
+        // document.getElementById('totalFP').innerHTML = selectedOption1;
+        // // document.getElementById('totalFP').innerHTML = "Pastilan";
+
+        // document.getElementById('myModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+</script>

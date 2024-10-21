@@ -1,0 +1,40 @@
+<?php
+require 'vendor/autoload.php'; // Make sure you've installed Twilio SDK via Composer
+
+use Twilio\Rest\Client;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $messageContent = $_POST['message'];
+
+    // Sanitize inputs
+    $name = htmlspecialchars($name);
+    $messageContent = htmlspecialchars($messageContent);
+
+    // Twilio credentials
+    $sid = 'US471d0d27fa163a0565ee4e5241dc35ea'; // Replace with your Twilio Account SID
+    $token = 'b73030ab0c8291ddd9d0d969abf2d03b'; // Replace with your Twilio Auth Token
+    $twilioNumber = '+12027982599'; // Your Twilio phone number
+    $recipientNumber = '09623215303'; // Your phone number to receive the SMS
+
+    // Compose the message
+    $message = "New Comment from $name: $messageContent";
+
+    // Create a new Twilio Client
+    $client = new Client($sid, $token);
+
+    try {
+        // Send SMS
+        $client->messages->create(
+            $recipientNumber, // To your phone number
+            [
+                'from' => $twilioNumber, // From your Twilio number
+                'body' => $message
+            ]
+        );
+        echo "Message sent successfully!";
+    } catch (Exception $e) {
+        echo "Message failed to send. Error: " . $e->getMessage();
+    }
+}
+?>

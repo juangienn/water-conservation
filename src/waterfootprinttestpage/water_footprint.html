@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Footprint Calculator</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
+</head>
+<body>
+    <div id="contentcontainer">
+        <header id="headercomponent">
+            <div class="container">
+                <!-- <a href="../../index.html"> -->
+                <img src="../../assets/images/logo.PNG" alt="Water Conservation Logo" class="logo">
+            <!-- </a> -->
+                <nav>
+                    <ul class="menu-bar">
+                        <li><a href="../../index.html"><i class="fas fa-home"></i></a></li>
+                        <li><a href="../supportpage/help.html"><i class="fas fa-question-circle"></i></a></li>
+                        <li><a href="../contactpage/contact.html"><i class="fas fa-envelope"></i></a></li>
+                        <li><a href="../aboutpage/about.html"><i class="fas fa-info-circle"></i></a></li>
+                    </ul>
+                </nav>
+    
+            </div>
+        </header>
+    
+        <!-- Modal -->
+        <div id="myModal" style="display:none;" class="modal">
+            <div class="modal-answer" id="modalanswer">
+                <h1 id="answer">Your Water Footprint</h1>
+                <h3 id="wfp" style="line-height: 1.5;"></h3>
+                
+
+                <button onclick="modalClose()">Close</button>
+            </div>
+        </div>
+    
+        <!-- Number 1 Question -->
+        <div id="question1" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">How often do you leave the tap running while washing your hands?</h2>
+                    <label class="choices" id="num1">
+                        <label><input type="radio" name="q1-1" value="1"> Never </label>
+                        <label><input type="radio" name="q1-1" value="2"> Rarely </label>
+                        <label><input type="radio" name="q1-1" value="3"> Sometimes </label>
+                        <label><input type="radio" name="q1-1" value="4">  Often </label>
+                        <label><input type="radio" name="q1-1" value="5">  Always </label>
+    
+                    </label>
+                </div> 
+    
+            </div>
+    
+            <div class="modal-menu">
+                <div style="width: 50%;">
+                    <button onclick="prevModal1()" class="submit-button">Exit</button>
+                </div>
+                <div style="width: 50%;">
+                    <button onclick="nextModal1()" class="submit-button">Next</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Number 2 Question -->
+        <div id="question2" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">Do you leave the shower on while soaping or shampooing?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-2" value="1"> Never </label>
+                        <label><input type="radio" name="q1-2" value="2"> Rarely </label>
+                        <label><input type="radio" name="q1-2" value="3"> Sometimes </label>
+                        <label><input type="radio" name="q1-2" value="4">  Often </label>
+                        <label><input type="radio" name="q1-2" value="5">  Always </label>
+    
+                        <!-- <h1 id="answer"></h1> -->
+                    </label>
+                </div>   
+            </div>
+    
+            <div class="modal-menu">
+                <div style="width: 50%;">
+                    <button onclick="prevModal2()" class="submit-button">Previous</button>
+                </div>
+                <div style="width: 50%;">
+                    <button onclick="nextModal2()" class="submit-button">Next</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Number 3 Question -->
+        <div id="question3" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">How often do you check for and fix leaks in your home?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-3" value="5"> Never </label>
+                        <label><input type="radio" name="q1-3" value="4"> Rarely </label>
+                        <label><input type="radio" name="q1-3" value="3"> Sometimes </label>
+                        <label><input type="radio" name="q1-3" value="2">  Often </label>
+                        <label><input type="radio" name="q1-3" value="1">  Always </label>
+                    </label>
+                </div> 
+            </div>
+            <div class="modal-menu">
+                <div style="width: 50%;">
+                    <button onclick="prevModal3()" class="submit-button">Previous</button>
+                </div>
+                <div style="width: 50%;">
+                    <button onclick="nextModal3()" class="submit-button">Next</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Number 4 Question -->
+        <div id="question4" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">Do you wash dishes by hand with the tap running or fill a basin with water?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-4" value="2.5"> Basin With Water </label>
+                        <label><input type="radio" name="q1-4" value="5"> Tap Ranning </label>
+                    </label>
+                </div> 
+            </div>
+            <div class="modal-menu">
+                <div style="width: 50%;">
+                    <button onclick="prevModal4()" class="submit-button">Previous</button>
+                </div>
+                <div style="width: 50%;">
+                    <button onclick="nextModal4()" class="submit-button">Next</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Number 5 Question -->
+        <div id="question5" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">How frequently do you reuse water (e.g., for plants or cleaning)?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-5" value="5"> Never </label>
+                        <label><input type="radio" name="q1-5" value="4"> Rarely </label>
+                        <label><input type="radio" name="q1-5" value="3"> Sometimes </label>
+                        <label><input type="radio" name="q1-5" value="2">  Often </label>
+                        <label><input type="radio" name="q1-5" value="1">  Always </label>
+                    </label>
+                </div> 
+            </div>
+            <div class="modal-menu">
+                <div style="width: 50%;">
+                    <button onclick="prevModal5()" class="submit-button">Previous</button>
+                </div>
+                <div style="width: 50%;">
+                    <button onclick="nextModal5()" class="submit-button">Next</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Number 6 Question -->
+        <div id="question6" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">Do you use water-efficient appliances like a washing machine or dishwasher?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-6" value="2.5"> Yes </label>
+                        <label><input type="radio" name="q1-6" value="5"> No </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal6()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal6()" class="submit-button">Next</button>
+                    </div>
+                </div>
+        </div>
+    
+        <!-- Number 7 Question -->
+        <div id="question7" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">How often do you use hot water for laundry or cleaning?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-7" value="5"> Never </label>
+                        <label><input type="radio" name="q1-7" value="4"> Rarely </label>
+                        <label><input type="radio" name="q1-7" value="3"> Sometimes </label>
+                        <label><input type="radio" name="q1-7" value="2"> Often </label>
+                        <label><input type="radio" name="q1-7" value="1"> Always </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                <div style="width: 50%;">
+                    <button onclick="prevModal7()" class="submit-button">Previous</button>
+                </div>
+                <div style="width: 50%;">
+                    <button onclick="nextModal7()" class="submit-button">Next</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Number 8 Question -->
+        <div id="question8" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">Do you minimize water use when preparing meals (e.g., boiling, rinsing)?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-8" value="2.5"> Yes </label>
+                        <label><input type="radio" name="q1-8" value="5"> No </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                <div style="width: 50%;">
+                    <button onclick="prevModal8()" class="submit-button">Previous</button>
+                </div>
+                <div style="width: 50%;">
+                    <button onclick="nextModal8()" class="submit-button">Next</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Number 9 Question -->
+        <div id="question9" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">How often do you run the washing machine or dishwasher with less than a full load?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-9" value="5"> Never </label>
+                        <label><input type="radio" name="q1-9" value="4"> Rarely </label>
+                        <label><input type="radio" name="q1-9" value="3"> Sometimes </label>
+                        <label><input type="radio" name="q1-9" value="2"> Often </label>
+                        <label><input type="radio" name="q1-9" value="1"> Always </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                <div style="width: 50%;">
+                    <button onclick="prevModal9()" class="submit-button">Previous</button>
+                </div>
+                <div style="width: 50%;">
+                    <button onclick="nextModal9()" class="submit-button">Next</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Number 10 Question -->
+        <div id="question10" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">Do you prefer watering plants with a hose, sprinkler, or bucket?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-10" value="5"> Hose </label>
+                        <label><input type="radio" name="q1-10" value="3"> Sprinkler </label>
+                        <label><input type="radio" name="q1-10" value="1"> Bucket </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal10()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal10()" class="submit-button">Next</button>
+                    </div>
+                </div>
+        </div>
+    
+        <!-- Number 11 Question -->
+        <div id="question11" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">How often do you wash your car or motorcycle?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-11" value="1"> Never </label>
+                        <label><input type="radio" name="q1-11" value="2"> Rarely </label>
+                        <label><input type="radio" name="q1-11" value="3"> Sometimes </label>
+                        <label><input type="radio" name="q1-11" value="4"> Often </label>
+                        <label><input type="radio" name="q1-11" value="5"> Always </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal11()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal11()" class="submit-button">Next</button>
+                    </div>
+                </div>
+        </div>
+    
+        <!-- Number 12 Question -->
+        <div id="question12" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">Do you collect and use rainwater for household tasks (e.g., gardening, washing)?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-12" value="2.5"> Yes </label>
+                        <label><input type="radio" name="q1-12" value="5"> No </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal12()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal12()" class="submit-button">Next</button>
+                    </div>
+                </div>
+        </div>
+    
+        <!-- Number 13 Question -->
+        <div id="question13" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">How frequently do you turn off the tap while brushing your teeth?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-13" value="5"> Never </label>
+                        <label><input type="radio" name="q1-13" value="4"> Rarely </label>
+                        <label><input type="radio" name="q1-13" value="3"> Sometimes </label>
+                        <label><input type="radio" name="q1-13" value="2"> Often </label>
+                        <label><input type="radio" name="q1-13" value="1"> Always </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal13()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal13()" class="submit-button">Next</button>
+                    </div>
+                </div>
+        </div>
+    
+        <!-- Number 14 Question -->
+        <div id="question14" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">Do you use a bucket to wash your car or motorcycle instead of a hose?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-14" value="2.5"> Using Bucket </label>
+                        <label><input type="radio" name="q1-14" value="5"> Using Hose </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal14()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal14()" class="submit-button">Next</button>
+                    </div>
+                </div>
+        </div>
+    
+        <!-- Number 15 Question -->
+        <div id="question15" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">How often do you monitor your household water bill to track water use?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-15" value="5"> Never </label>
+                        <label><input type="radio" name="q1-15" value="4"> Rarely </label>
+                        <label><input type="radio" name="q1-15" value="3"> Sometimes </label>
+                        <label><input type="radio" name="q1-15" value="2"> Often </label>
+                        <label><input type="radio" name="q1-15" value="1"> Always </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal15()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal15()" class="submit-button">Next</button>
+                    </div>
+                </div>
+        </div>
+    
+        <!-- Number 16 Question -->
+        <div id="question16" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">Do you take showers that are shorter than 8 minutes?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-16" value="2.5"> Yes, Shorter than 8 minutes </label>
+                        <label><input type="radio" name="q1-16" value="5"> No, Longer than 8 minutes </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal16()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal16()" class="submit-button">Next</button>
+                    </div>
+                </div>
+        </div>
+    
+        <!-- Number 17 Question -->
+        <div id="question17" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">How frequently do you use a low-flow showerhead or faucet aerator to save water?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-17" value="5"> Never </label>
+                        <label><input type="radio" name="q1-17" value="4"> Rarely </label>
+                        <label><input type="radio" name="q1-17" value="3"> Sometimes </label>
+                        <label><input type="radio" name="q1-17" value="2"> Often </label>
+                        <label><input type="radio" name="q1-17" value="1"> Always </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal17()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal17()" class="submit-button">Next</button>
+                    </div>
+                </div>
+        </div>
+    
+        <!-- Number 18 Question -->
+        <div id="question18" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">Do you wait until the dishwasher or washing machine is fully loaded before running it?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-18" value="5"> Yes </label>
+                        <label><input type="radio" name="q1-18" value="2.5"> No </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal18()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal18()" class="submit-button">Next</button>
+                    </div>
+                </div>
+        </div>
+    
+        <!-- Number 19 Question -->
+        <div id="question19" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">How often do you flush the toilet after every use?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-19" value="1"> Never </label>
+                        <label><input type="radio" name="q1-19" value="2"> Rarely </label>
+                        <label><input type="radio" name="q1-19" value="3"> Sometimes </label>
+                        <label><input type="radio" name="q1-19" value="4"> Often </label>
+                        <label><input type="radio" name="q1-19" value="5"> Always </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal19()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal19()" class="submit-button">Next</button>
+                    </div>
+                </div>
+        </div>
+    
+        <!-- Number 20 Question -->
+        <div id="question20" style="display: none;" class="modal">
+            <div class="modal-container">
+                <div class="form-group">
+                    <h2 class="water-question">Do you typically wash fruits and vegetables under a running tap or in a bowl of water?</h2>
+                    <label class="choices">
+                        <label><input type="radio" name="q1-20" value="5"> Under A Running Tap </label>
+                        <label><input type="radio" name="q1-20" value="2.5"> Bowl Of Water </label>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-menu">
+                    <div style="width: 50%;">
+                        <button onclick="prevModal20()" class="submit-button">Previous</button>
+                    </div>
+                    <div style="width: 50%;">
+                        <button onclick="nextModal20()" class="submit-button">Summit</button>
+                    </div>
+                </div>
+        </div>
+    
+        
+    
+    
+        <main id="waterfootprint">
+            <div class="calculator-container">
+                <h1>Calculating Water Foot Print</h1>
+                <p>A water footprint is a comprehensive measure of the total volume of freshwater used to produce goods and services consumed by an individual, community, or business. It encompasses both direct water use, such as drinking and bathing, and indirect water use, like the water required to grow food, manufacture products, and generate energy. Calculating the water footprint is essential for understanding the sustainability of water resources, as it highlights the impact of consumption patterns on freshwater availability. By assessing water footprints, individuals and organizations can identify opportunities to reduce water use, promote conservation efforts, and make more informed choices that contribute to sustainable water management and help mitigate the effects of water scarcity.</p><br><br>
+    
+                <button type="submit" class="submit-button" onclick="assessment()">Start Assessment</button>
+                
+            </div>
+        </main>
+    
+    
+    
+        <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Water Conservation. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="../generalcomponents/terms_of_service.html" style="color: blue;">Terms of Service</a></li>
+                <li><a href="../generalcomponents/references.html" style="color: blue;">References</a></li>
+            </ul>
+        </div>
+    </footer>
+    </div>
+</body>
+</html>
+
+<script>
+
+    let ans1 = 0;
+    let ans2 = 0;
+    let ans3 = 0;
+    let ans4 = 0;
+    let ans5 = 0;
+    let ans6 = 0;
+    let ans7 = 0;
+    let ans8 = 0;
+    let ans9 = 0;
+    let ans10 = 0;
+    let ans11 = 0;
+    let ans12 = 0;
+    let ans13 = 0;
+    let ans14 = 0;
+    let ans15 = 0;
+    let ans16 = 0;
+    let ans17 = 0;
+    let ans18 = 0;
+    let ans19 = 0;
+    let ans20 = 0;
+
+    let waterFP = 0
+    let waterFpTotal = 0;
+
+    // Start Assessment Function
+    function assessment() {
+        document.getElementById('question1').style.display = 'flex';
+        document.getElementById('headercomponent').style.display = 'none';
+        document.getElementById('footercomponent').style.display = 'none';
+        document.getElementById('waterfootprint').style.display = 'none';
+    }
+
+
+    // Question 1
+    function prevModal1() {
+        document.getElementById('question1').style.display = 'none';
+        document.getElementById('headercomponent').style.display = 'block';
+        document.getElementById('footercomponent').style.display = 'block';
+        document.getElementById('waterfootprint').style.display = 'flex';
+        window.location.reload();
+    }
+    function nextModal1() {
+        const selectedOption1 = document.querySelector('input[name="q1-1"]:checked');
+        ans1 = (parseInt(selectedOption1.value)/5) * 100;
+        document.getElementById('question1').style.display = 'none';
+        document.getElementById('question2').style.display = 'flex';
+    }
+
+    // Question 2
+    function prevModal2() {
+        document.getElementById('question2').style.display = 'none';
+        document.getElementById('question1').style.display = 'flex';
+    }
+    function nextModal2() {
+        const selectedOption2 = document.querySelector('input[name="q1-2"]:checked');
+        ans2 = (parseInt(selectedOption2.value)/5) * 100;
+        document.getElementById('question2').style.display = 'none';
+        document.getElementById('question3').style.display = 'flex';
+        
+    }
+
+    // Question 3
+    function prevModal3() {
+        document.getElementById('question3').style.display = 'none';
+        document.getElementById('question2').style.display = 'flex';
+    }
+    function nextModal3() {
+        const selectedOption3 = document.querySelector('input[name="q1-3"]:checked');
+        ans3 = (parseInt(selectedOption3.value)/5) * 100;
+        document.getElementById('question3').style.display = 'none';
+        document.getElementById('question4').style.display = 'flex';
+        
+    }
+
+    // Question 4
+    function prevModal4() {
+        document.getElementById('question4').style.display = 'none';
+        document.getElementById('question3').style.display = 'flex';
+    }
+    function nextModal4() {
+        const selectedOption4 = document.querySelector('input[name="q1-4"]:checked');
+        ans4 = (parseInt(selectedOption4.value)/5) * 100;
+        document.getElementById('question4').style.display = 'none';
+        document.getElementById('question5').style.display = 'flex';
+        
+    }
+
+    // Question 5
+    function prevModal5() {
+        document.getElementById('question5').style.display = 'none';
+        document.getElementById('question4').style.display = 'flex';
+    }
+    function nextModal5() {
+        const selectedOption5 = document.querySelector('input[name="q1-5"]:checked');
+        ans5 = (parseInt(selectedOption5.value)/5) * 100;
+        document.getElementById('question5').style.display = 'none';
+        document.getElementById('question6').style.display = 'flex';
+        
+    }
+
+    // Question 6
+    function prevModal6() {
+        document.getElementById('question6').style.display = 'none';
+        document.getElementById('question5').style.display = 'flex';
+    }
+    function nextModal6() {
+        const selectedOption6 = document.querySelector('input[name="q1-6"]:checked');
+        ans6 = (parseInt(selectedOption6.value)/5) * 100;
+        document.getElementById('question6').style.display = 'none';
+        document.getElementById('question7').style.display = 'flex';
+        
+    }
+
+    // Question 7
+    function prevModal7() {
+        document.getElementById('question7').style.display = 'none';
+        document.getElementById('question6').style.display = 'flex';
+    }
+    function nextModal7() {
+        const selectedOption7 = document.querySelector('input[name="q1-7"]:checked');
+        ans7 = (parseInt(selectedOption7.value)/5) * 100;
+        document.getElementById('question7').style.display = 'none';
+        document.getElementById('question8').style.display = 'flex';
+        
+    }
+
+    // Question 8
+    function prevModal8() {
+        document.getElementById('question8').style.display = 'none';
+        document.getElementById('question7').style.display = 'flex';
+    }
+    function nextModal8() {
+        const selectedOption8 = document.querySelector('input[name="q1-8"]:checked');
+        ans8 = (parseInt(selectedOption8.value)/5) * 100;
+        document.getElementById('question8').style.display = 'none';
+        document.getElementById('question9').style.display = 'flex';
+
+    }
+
+    // Question 9
+    function prevModal9() {
+        document.getElementById('question9').style.display = 'none';
+        document.getElementById('question8').style.display = 'flex';
+    }
+    function nextModal9() {
+        const selectedOption9 = document.querySelector('input[name="q1-9"]:checked');
+        ans9 = (parseInt(selectedOption9.value)/5) * 100;
+        document.getElementById('question9').style.display = 'none';
+        document.getElementById('question10').style.display = 'flex';
+        
+    }
+
+    // Question 10
+    function prevModal10() {
+        document.getElementById('question10').style.display = 'none';
+        document.getElementById('question9').style.display = 'flex';
+    }
+    function nextModal10() {
+        const selectedOption10 = document.querySelector('input[name="q1-10"]:checked');
+        ans10 = (parseInt(selectedOption10.value)/5) * 100;
+        document.getElementById('question10').style.display = 'none';
+        document.getElementById('question11').style.display = 'flex';
+        
+    }
+
+    // Question 11
+    function prevModal11() {
+        document.getElementById('question11').style.display = 'none';
+        document.getElementById('question10').style.display = 'flex';
+    }
+    function nextModal11() {
+        const selectedOption11 = document.querySelector('input[name="q1-11"]:checked');
+        ans11 = (parseInt(selectedOption11.value)/5) * 100;
+        document.getElementById('question11').style.display = 'none';
+        document.getElementById('question12').style.display = 'flex';
+        
+    }
+
+    // Question 12
+    function prevModal12() {
+        document.getElementById('question12').style.display = 'none';
+        document.getElementById('question11').style.display = 'flex';
+    }
+    function nextModal12() {
+        const selectedOption12 = document.querySelector('input[name="q1-12"]:checked');
+        ans12 = (parseInt(selectedOption12.value)/5) * 100;
+        document.getElementById('question12').style.display = 'none';
+        document.getElementById('question13').style.display = 'flex';
+        
+    }
+
+    // Question 13
+    function prevModal13() {
+        document.getElementById('question13').style.display = 'none';
+        document.getElementById('question12').style.display = 'flex';
+    }
+    function nextModal13() {
+        const selectedOption13 = document.querySelector('input[name="q1-13"]:checked');
+        ans13 = (parseInt(selectedOption13.value)/5) * 100;
+        document.getElementById('question13').style.display = 'none';
+        document.getElementById('question14').style.display = 'flex';
+        
+    }
+
+    // Question 14
+    function prevModal14() {
+        document.getElementById('question14').style.display = 'none';
+        document.getElementById('question13').style.display = 'flex';
+    }
+    function nextModal14() {
+        const selectedOption14 = document.querySelector('input[name="q1-14"]:checked');
+        ans14 = (parseInt(selectedOption14.value)/5) * 100;
+        document.getElementById('question14').style.display = 'none';
+        document.getElementById('question15').style.display = 'flex';
+        
+    }
+
+    // Question 15
+    function prevModal15() {
+        document.getElementById('question15').style.display = 'none';
+        document.getElementById('question14').style.display = 'flex';
+    }
+    function nextModal15() {
+        const selectedOption15 = document.querySelector('input[name="q1-15"]:checked');
+        ans15 = (parseInt(selectedOption15.value)/5) * 100;
+        document.getElementById('question15').style.display = 'none';
+        document.getElementById('question16').style.display = 'flex';
+        
+    }
+
+    // Question 16
+    function prevModal16() {
+        document.getElementById('question16').style.display = 'none';
+        document.getElementById('question15').style.display = 'flex';
+    }
+    function nextModal16() {
+        const selectedOption16 = document.querySelector('input[name="q1-16"]:checked');
+        ans16 = (parseInt(selectedOption16.value)/5) * 100;
+        document.getElementById('question16').style.display = 'none';
+        document.getElementById('question17').style.display = 'flex';
+        
+    }
+
+    // Question 17
+    function prevModal17() {
+        document.getElementById('question17').style.display = 'none';
+        document.getElementById('question16').style.display = 'flex';
+    }
+    function nextModal17() {
+        const selectedOption17 = document.querySelector('input[name="q1-17"]:checked');
+        ans17 = (parseInt(selectedOption17.value)/5) * 100;
+        document.getElementById('question17').style.display = 'none';
+        document.getElementById('question18').style.display = 'flex';
+        
+    }
+
+    // Question 18
+    function prevModal18() {
+        document.getElementById('question18').style.display = 'none';
+        document.getElementById('question17').style.display = 'flex';
+    }
+    function nextModal18() {
+        const selectedOption18 = document.querySelector('input[name="q1-18"]:checked');
+        ans18 = (parseInt(selectedOption18.value)/5) * 100;
+        document.getElementById('question18').style.display = 'none';
+        document.getElementById('question19').style.display = 'flex';
+        
+    }
+
+    // Question 19
+    function prevModal19() {
+        document.getElementById('question19').style.display = 'none';
+        document.getElementById('question18').style.display = 'flex';
+    }
+    function nextModal19() {
+        const selectedOption19 = document.querySelector('input[name="q1-19"]:checked');
+        ans19 = (parseInt(selectedOption19.value)/5) * 100;
+        document.getElementById('question19').style.display = 'none';
+        document.getElementById('question20').style.display = 'flex';
+        
+    }
+
+    // Question 20
+    function prevModal20() {
+        document.getElementById('question20').style.display = 'none';
+        document.getElementById('question19').style.display = 'flex';
+    }
+    function nextModal20() {
+        const selectedOption20 = document.querySelector('input[name="q1-20"]:checked');
+        ans20 = (parseInt(selectedOption20.value)/5) * 100;
+        document.getElementById('question20').style.display = 'none';
+
+
+        waterFP = (ans1 + ans2 + ans3 + ans4 + ans5 + ans6 + ans7 + ans8 + ans9 + ans10 + ans11 + ans12 + ans13 + ans14 + ans15 + ans16 + ans17 + ans18 + ans19 + ans20)/20;
+
+        if(waterFP > 70 && waterFP <= 100){
+            document.getElementById('answer').innerHTML = "High Water Footprint";
+            // document.getElementById('modalanswer').style.backgroundColor = 'red';
+            document.getElementById('wfp').innerHTML = "You have a high water footprint, it indicates that your activities and consumption patterns are using a significant amount of freshwater. Consider exploring ways to reduce your water usage, as small changes can make a big difference in conserving this precious resource.";
+
+            document.getElementById('answer').style.color = 'red';
+            document.getElementById('wfp').style.color = 'red';
+        } else if(waterFP > 40){
+            document.getElementById('answer').innerHTML = "Moderate Water Footprint";
+            // document.getElementById('modalanswer').style.backgroundColor = 'orange';
+            document.getElementById('wfp').innerHTML = "Having a moderate water footprint means you're using a balanced amount of freshwater in your daily activities. While you’re mindful of your water usage, there are still opportunities to further reduce your impact and contribute to greater water conservation efforts.";
+
+            document.getElementById('answer').style.color = 'orange';
+            document.getElementById('wfp').style.color = 'orange';
+        } else if(waterFP >=20){
+            document.getElementById('answer').innerHTML = "Low Water Footprint";
+            // document.getElementById('modalanswer').style.backgroundColor = 'green';
+            document.getElementById('wfp').innerHTML = "You are positively impacting the environment and conserving essential water resources. Your choices can inspire others to embrace sustainable practices and highlight the importance of water conservation.";
+
+            document.getElementById('answer').style.color = 'green';
+            document.getElementById('wfp').style.color = 'green';
+        } else {
+            document.getElementById('answer').innerHTML = "Invalid Input";
+        }
+        
+        // document.getElementById('wfp').innerHTML = "you’re positively impacting the environment and conserving essential water resources. Your choices can inspire others to embrace sustainable practices and highlight the importance of water conservation.";
+        document.getElementById('myModal').style.display = 'flex';
+        
+
+        var allAnswers = "1. " + ans1 + "<br>" +
+                     "2. " + ans2 + "<br>" +
+                     "3. " + ans3 + "<br>" +
+                     "4. " + ans4 + "<br>" +
+                     "5. " + ans5 + "<br>" +
+                     "6. " + ans6 + "<br>" +
+                     "7. " + ans7 + "<br>" +
+                     "8. " + ans8 + "<br>" +
+                     "9. " + ans9 + "<br>" +
+                     "10. " + ans10 + "<br>" +
+                     "11. " + ans11 + "<br>" +
+                     "12. " + ans12 + "<br>" +
+                     "13. " + ans13 + "<br>" +
+                     "14. " + ans14 + "<br>" +
+                     "15. " + ans15 + "<br>" +
+                     "16. " + ans16 + "<br>" +
+                     "17. " + ans17 + "<br>" +
+                     "18. " + ans18 + "<br>" +
+                     "19. " + ans19 + "<br>" +
+                     "20. " + ans20;
+
+        // document.getElementById('answer1').innerHTML = allAnswers;
+
+        // document.getElementById('answer1').innerHTML = ans1;
+        // document.getElementById('answer2').innerHTML = ans2;
+        // document.getElementById('answer3').innerHTML = ans3;
+        // document.getElementById('answer4').innerHTML = ans4;
+        // document.getElementById('answer5').innerHTML = ans5;
+        // document.getElementById('answer6').innerHTML = ans6;
+        // document.getElementById('answer7').innerHTML = ans7;
+        // document.getElementById('answer8').innerHTML = ans8;
+        // document.getElementById('answer9').innerHTML = ans9;
+        // document.getElementById('answer10').innerHTML = ans10;
+        // document.getElementById('answer11').innerHTML = ans11;
+        // document.getElementById('answer12').innerHTML = ans12;
+        // document.getElementById('answer13').innerHTML = ans13;
+        // document.getElementById('answer14').innerHTML = ans14;
+        // document.getElementById('answer15').innerHTML = ans15;
+        // document.getElementById('answer16').innerHTML = ans16;
+        // document.getElementById('answer17').innerHTML = ans17;
+        // document.getElementById('answer18').innerHTML = ans18;
+        // document.getElementById('answer19').innerHTML = ans19;
+        // document.getElementById('answer20').innerHTML = ans20;
+        
+    }
+
+
+
+    function modalClose(){
+        document.getElementById('myModal').style.display = 'none';
+        document.getElementById('headercomponent').style.display = 'block';
+        document.getElementById('footercomponent').style.display = 'block';
+        document.getElementById('waterfootprint').style.display = 'flex';
+        window.location.reload();
+    }
+
+
+</script>

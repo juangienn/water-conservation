@@ -1,0 +1,1017 @@
+/* Global styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #dcf3ff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #333;
+    /* min-height: calc(100vh - 140px); Adjust based on header and footer heights */
+    /* background-color: lightblue; Background color for the content area */
+    /* padding: 20px; */
+}
+
+
+
+h1, h2, h3 {
+    color: #055879;
+}
+
+/* Header styling */
+header {
+    background-color: #055879;
+    color: white;
+    padding: 2px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    height: 80px;
+    width: 138px;
+    margin-top: 5px;
+    border: #57585a;
+    border-radius: 8px;
+    
+}
+
+
+nav {
+    flex-grow: 1;
+}
+
+/* Navigation Menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin: 0 10px; /* Adjust margin for spacing */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    padding: 10px 20px; /* Add padding to make it look like a button */
+    border-radius: 5px; /* Rounded corners for the button effect */
+    background-color: #007bff; /* Button background color */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transition for hover effect */
+}
+
+/* Hover Effect for Buttons */
+nav ul li a:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+
+/* Main content styling */
+main {
+    padding: 20px;
+}
+
+/* Hero section styling */
+.hero {
+    background-image: url('../images/cover.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: white;
+    margin: auto;
+    border-radius: 20px;
+    padding: 250px 200px;
+    text-align: center;
+}
+
+.hero-text {
+    text-align: center;
+}
+ 
+.hero-text h2 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #0056b3;
+    text-shadow: #333;
+    font-size: 3em;
+    font-weight: bolder;
+    margin-bottom: auto;
+}
+
+.hero-text p {
+    font-family: 'Times New Roman', Times, serif;
+    color: #0056b3;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.background {
+    width: 200px;
+    padding: 40px;
+}
+
+.btn:hover {
+    background-color: #ffd966;
+}
+
+.btn {
+    background-color: #ff9b06;
+    color: #333;
+    margin-top: 200px;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+/* Features section styling */
+.features {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.features h1 {
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+.features h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    margin-top: auto;
+}
+
+.con-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* margin-top: 5px; */
+}
+
+.con-tacts {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin: 3px;
+    width: 270px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.con li{
+    text-align: left;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.con-tacts img{
+    max-width: 100%;
+    height: auto;
+}
+
+.contact-feature{
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 20px;
+        background-image: url('../../assets/images/back.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.feature-grid a:hover {
+    background-color: orange;
+}  
+
+.feature-grid p {
+    line-height: 1.5;
+}   
+
+.feature {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature img {
+    max-width: 100%;
+    height: auto;
+}
+
+.feature h3 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.feature p {
+    font-weight: bold;
+    margin: 10px 0 20px 0;
+}
+
+/* Quiz Page Styling */
+.quiz-container {
+    max-width: 1000px; /* Limit the width of the quiz form */
+    margin: 20px auto; /* Center the form on the page */
+    padding: 20px; /* Add padding for spacing */
+    background-color: #fff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.quiz-container h1 {
+    text-align: center; /* Center the heading */
+    color: solid black; /* Custom color for the heading */
+}
+
+.quiz-container h3 {
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    color: solid black;
+}
+.quiz-container p {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+}
+
+.butun{
+    background-color: #ff9b06;
+    color: #333;
+    margin-top: 200px;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.choice {
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+}
+
+.form-group {
+    width: 100%;
+    height: 80%;
+    margin: 20px;
+}
+
+.form-group h2{
+    text-align: center;
+    margin:30px;
+}
+
+label {
+    display: block; /* Make labels block elements */
+    margin-bottom: 5px; /* Space between label and input */
+    color: #333; /* Label color */
+}
+
+input[type="radio"] {
+    margin-right: 10px; /* Add spacing between radio button and label */
+}
+
+.submit-button {
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color for button */
+    padding: 10px 15px; /* Padding for button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size for button */
+}
+
+.submit-button:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+}
+
+.quiz-it{
+    text-align: center;
+}
+
+.quiz-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-image: url('../images//quiz.gif');
+    background-position: center;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+}
+.modal-content {
+    background-color: white;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 5px solid #ff00d4;
+    width: 50%; /* Could be more or less, depending on screen size */
+    text-align: center;
+    border-radius: 8px;
+}
+
+.modal video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Send video behind content */
+    opacity: 0.5; /* Make it more subtle */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.correct {
+    color: green;
+    font-weight: bolder;
+
+}
+
+.incorrect {
+    color: red;
+    font-weight: bolder;
+}
+
+.user-answer {
+    color: rgb(160, 1, 147);
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    background-color: #fffafa;
+    height: 40px;
+    border: solid black 3px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #28a745;
+    text-align: center;
+    color: rgb(5, 5, 5);
+    line-height: 25px;
+    width: 0%;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+/* Style to center the content on the page */
+.action-plan-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+    background-color: #e4e3e3;
+    border-radius: 5px;
+    }
+
+    .action-plan-container h1 {
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 50px;
+    }
+
+    .action-plan-container p {
+        font-size: 30px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    .action-plan-container form {
+        width: 100%;
+        max-width: 1200px;
+        height: 100%;
+    }
+
+    /*#editor-container {
+        height: 65vh; /* Makes the editor occupy 80% of the viewport height */
+    /*    border: 3px solid #474545;
+        border-radius: 8px;
+    /*}
+
+    .action-plan-container .btn {
+        display: block; /* Makes the button behave like a block element */
+    /*    background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 20px auto 0 auto; /* Centers the button horizontally */
+    /*    cursor: pointer;
+    }
+
+    .action-plan-container .btn:hover {
+        background-color: #0056b3;
+    }
+    
+    /* Footer styling */
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        margin-top: 130px;
+        padding: 5px 0;
+    }
+
+    footer p {
+        height: 1;
+        margin: 0px;
+    }
+
+    .terms-of-service-container {
+        max-width: 800px;
+        width: 100%;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        justify-content: center;
+        text-align: center;
+    }
+    /* Style for the contact form */
+    .contact-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-container h1 {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"], input[type="email"], textarea {
+        width: 50%;
+        padding: 8px;
+        border: 2px solid #57585a;
+        border-radius: 4px;
+    }
+
+    /* Style for the Send Message link button */
+    .send-button {
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .send-button:hover {
+        background-color: #0056b3;
+    }
+    /* Water Footprint Calculator Styling */
+    .calculator-container {
+        max-width: 800px; /* Limit the width of the calculator form */
+        margin: 20px auto; /* Center the form on the page */
+        padding: 20px; /* Add padding for spacing */
+        background-color: #ffffff; /* White background for the form */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+
+    .calculator-container h1 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 2.5em;
+        text-align: center; /* Center the heading */
+        color: #006994; /* Custom color for the heading */
+    }
+
+    .calculator-container p {
+        text-indent: 30px;
+        line-height: 1.5;
+        font-size: 20px;
+        color: solid black;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .water-question {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+        line-height: 2;
+    }
+
+    .choices {
+        display: flex;
+        flex-direction: column;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bolder;
+        font-size: 2rem;
+        padding: 5px;
+        justify-content: space-around;
+        margin: auto;
+        width: 30%;
+    }
+
+    /* .form-group { */
+        /* margin-bottom: 15px; Space between form groups */
+    /* } */
+
+    label {
+        display: block; /* Make labels block elements */
+        margin-bottom: 5px; /* Space between label and input */
+        color: #333; /* Label color */
+        font-size: 1rem;
+        font-weight: 100;
+    }
+
+    input[type="number"] {
+        width: 100%; /* Full-width inputs */
+        padding: 10px; /* Padding for input fields */
+        border: 1px solid #ccc; /* Light gray border */
+        border-radius: 5px; /* Rounded corners */
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .submit-button {
+        background-color: #007bff; /* Button color */
+        color: white; /* Text color for button */
+        padding: 10px 15px; /* Padding for button */
+        border: none; /* Remove default border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-size: 16px; /* Font size for button */
+    }
+
+    .submit-button:hover {
+        background-color: #0056b3; /* Darker button color on hover */
+    }
+    /* Styling for the lesson content */
+    .lesson-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .lesson-container h1 {
+        text-align: center;
+        color: #006994;
+        margin-bottom: 20px;
+    }
+
+    .lesson-container p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .lesson-container img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .lesson-container video {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .lesson-container h2 {
+        margin-top: 30px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .lesson-container ul {
+        margin-bottom: 20px;
+    }
+
+    .lesson-container ul li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .lesson-container .back-button {
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .lesson-container .back-button:hover {
+        background-color: #0056b3;
+    }
+    /* Styling for the help page content */
+    .help-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .help-container h1 {
+        text-align: center;
+        color: #006994;
+        margin-bottom: 20px;
+    }
+
+    .help-container h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .help-container p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .help-container ul {
+        margin-bottom: 20px;
+    }
+
+    .help-container ul li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .help-container a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .help-container a:hover {
+        text-decoration: underline;
+    }
+
+    .bton {
+        display: inline-block;
+        background-color: blue;
+        color: white;
+        text-underline-position: below;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .bton:hover {
+        background-color: red;
+    }
+
+    /* Styling for the about page */
+    .about-container {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 20px;
+        background-image: url('../../assets/images/back.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center; /* Center the text */
+        align-items: center;
+    }
+
+    .about-container h1 {
+        color: #006994;
+        margin-bottom: 20px;
+    }
+
+    .about-container img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .about-container p {
+        color: white;
+        font-size: 22px;
+        line-height: 1.6;
+        font-weight: bold;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .about-container h2 {
+        margin-top: 30px;
+        font-size: 2.5em;
+        text-underline-position: below black;
+        color: #ffffff;
+        font-weight: bolder;
+        margin-bottom: 15px;
+    }
+
+    .about-container .mission, .about-container .vision, .about-container .team {
+        margin-bottom: 20px;
+    }
+
+    .about-container .team-member {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center the team member content */
+        margin-bottom: 20px;
+    }
+
+    .about-container .team-member img {
+        width: 20px; /* Reduced width */
+        height: 20px; /* Reduced height */
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .about-container .team-member h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #006994;
+    }
+
+    .about-container .team-member p {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    /* Ensure the main team container is centered */
+    .about-container .team {
+        text-align: left;
+    }
+
+    .about-container .team-member li {
+        text-align: justify;
+    }
+
+    .menu-bar {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        /* justify-content: space-around; */
+    }
+
+    .menu-bar li {
+        display: inline-block;
+    }
+
+    .menu-bar a {
+        text-decoration: none;
+        font-size: 18px;
+        color: #fdfdfd;
+        padding: 10px 15px;
+        border-radius: 100px;
+    }
+
+    .menu-bar a i {
+        font-size: 22px; /* Adjust icon size */
+        color: #fdfeff; /* Adjust icon color */
+    }
+
+    .menu-bar a:hover i {
+        color: #004466; /* Change color on hover */
+    }
+
+    .content {
+        width: 80%;
+        margin: auto;
+    }
+
+    .content p {
+        line-height: 1.5;
+    }
+
+    .content span {
+        text-decoration: underline;
+        font-size: large;
+        font-weight: bold;
+    }
+
+    .content li {
+        line-height: 2;
+    }
+
+    .content img{
+        display: flex;
+        margin: auto;
+    }
+
+    .content a {
+        line-height: 2;
+    }
+
+    .section{
+        margin-top: 10%;
+    }
+
+    .table-design {
+        width: 100%;
+        margin: auto;
+    }
+
+    .table-design table {
+        text-align: center;
+        border: 1px solid;
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+    .table-design table tr {
+        text-align: center;
+        border: 1px solid;
+    }
+
+    .table-design table tr td {
+        text-align: center;
+        border: 1px solid;
+        padding: 10px;
+    }
+
+    .pagenavigation {
+        display: flex; 
+        flex-direction: row; 
+        width: 50%;
+        margin: auto;
+        justify-content: space-between;
+        background-color: #fdfdfd;
+        padding: 5px;
+        border-radius: 5px;
+        /* position: fixed; */
+    }
+
+    .pagenavigation button {
+        background: lightgray;
+        border: none;
+        color: black;
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .pagenavigation button:hover{
+        background-color: orange;
+    }
+
+    .sticky {
+        position: fixed; /* Make it fixed */
+        top: 0; /* Position it at the top */
+        left: 0; /* Align to the left */
+        z-index: 1000; /* Ensure it stays on top of other content */
+    }
+
+    /* MODAL STYLE */
+
+    .modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        /* background-color: rgba(0, 0, 0, 0.5); */
+        background-image: url('../images//waterfootprint1.gif');
+        background-position: center;
+        background-size: 100vw 100vh;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .modal-menu{
+        display: flex; 
+        flex-direction: row;
+        width: 100%; 
+        height: 20%;  
+        text-align: center;
+        margin: 20px;
+    }
+
+    .modal-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 50%;
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+        
+    }
+
+    .modal-answer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width: 50%;
+        height: 50%;
+        background-color: white;
+        border-radius: 20px;
+        position: relative;
+        padding: 10px;
+    }
+
+    .modal-answer button{
+        width: 15%;
+        text-align: center;
+        margin: auto;
+        height: 50px;
+        background-color: lightgray;
+        border: none;
+        border-radius: 20px;
+    }
+
+    .modal-answer button:hover {
+        background-color: orange;
+    }
+
+    .video-design {
+        margin: 10px;
+        width: 100%;
+    }
+
+    .video-design video{
+        width: 100%;
+        height: 50%;
+        margin: auto;
+    } 
+
+
+
+
+
+
+
+    

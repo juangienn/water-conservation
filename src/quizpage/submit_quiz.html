@@ -1,0 +1,35 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Define correct answers
+    $correct_answers = array(
+        "q1" => "b", // Correct answer for question 1
+        "q2" => "c", // Correct answer for question 2
+        "q3" => "b"  // Correct answer for question 3
+    );
+
+    // Collect user's answers
+    $user_answers = array(
+        "q1" => $_POST['q1'],
+        "q2" => $_POST['q2'],
+        "q3" => $_POST['q3']
+    );
+
+    // Calculate score
+    $score = 0;
+    foreach ($correct_answers as $question => $correct_answer) {
+        if ($user_answers[$question] == $correct_answer) {
+            $score++;
+        }
+    }
+
+    // Display score
+    echo "<h1>Your Score: $score / 3</h1>";
+
+    // You can also redirect them back to the quiz page if desired
+    // header("Location: quizzes.php");
+} else {
+    // Redirect back to the quiz page if accessed directly
+    header("Location: quizzes.php");
+    exit();
+}
+?>

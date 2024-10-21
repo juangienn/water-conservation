@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Action Plan for Water Conservation</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- TinyMCE Script -->
+    <script src="https://cdn.tiny.cloud/1/hiqonh2b6ekzg2jjr0fo54jkhhb7yo9vt0axkcxp41fc179w/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- jsPDF Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <!-- <a href="../../index.html"> -->
+            <img src="../../assets/images/logo.PNG" alt="Water Conservation Logo" class="logo">
+            <!-- </a> -->
+            <nav>
+                <ul class="menu-bar">
+                    <li><a href="../../index.html"><i class="fas fa-home"></i></a></li>
+                    <li><a href="supportpage/help.html"><i class="fas fa-question-circle"></i></a></li>
+                    <li><a href="contactpage/contact.html"><i class="fas fa-envelope"></i></a></li>
+                    <li><a href="../aboutpage/about.html"><i class="fas fa-info-circle"></i></a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <style>
+        /* Responsive Container for TinyMCE Editor */
+        .btn {
+            display: block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 20px auto 0 auto;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+<main>
+
+    <div class="action-plan-container">
+        <form id="action-plan-form">
+            <h1>Create Your Action Plan</h1>
+            <p>How can you conserve water?</p>
+
+           <!-- Rich Text Editor (TinyMCE) -->
+           <textarea id="editor" name="action_plan"></textarea>
+
+           <!-- PDF Download Button -->
+           <!-- <button type="button" class="btn" id="download-pdf">Download</button> -->
+        </form>
+    </div>
+
+    <!-- Initialize TinyMCE -->
+    <script>
+        tinymce.init({
+            selector: '#editor',
+            height: 500,
+            plugins: 'print preview importcss searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help charmap quickbars emoticons',
+            toolbar: 'undo redo | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | removeformat | help',
+            mobile: {
+                plugins: 'autosave lists autolink',
+                toolbar: 'undo redo | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify'
+            },
+            contextmenu: 'link image imagetools table',
+            image_advtab: true,
+            quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+            menubar: true,
+            content_css: '//www.tiny.cloud/css/codepen.min.css',
+            resize: 'both',
+            branding: false
+        });
+    </script>
+
+    <!-- PDF Download Logic -->
+    <script>
+        document.getElementById('download-pdf').addEventListener('click', function () {
+            // Get the TinyMCE content
+            var content = tinymce.get('editor').getContent();
+
+            // Initialize jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Add the TinyMCE content to the PDF
+            doc.html(content, {
+                callback: function (doc) {
+                    // Trigger PDF download
+                    doc.save('Action_Plan.pdf');
+                },
+                x: 10,
+                y: 10,
+                width: 180, // Max width of the content on the page
+                windowWidth: document.body.scrollWidth
+            });
+        });
+    </script>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Water Conservation. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="../generalcomponents/terms_of_service.html" style="color: blue;">Terms of Service</a></li>
+                <li><a href="../generalcomponents/references.html" style="color: blue;">References</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
